@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상품소개</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+      img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        object-position: center;
+        vertical-align: middle;
+      }
+      #product-container {
+        width: 80%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 2%;
+        flex-wrap: wrap;
+        margin: 0 auto;
+      }
+      .product {
+        width: calc(100% / 4);
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        padding: 20px;
+        margin-top: 10px;
+      }
+      .product img {
+        width: 100%;
+      }
+      .product p:nth-of-type(2) {
+        color: #969696;
+      }
+      /* 더보기 버튼 스타일 */
+      #load-more {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #bebebe;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #load-more:hover {
+        background-color: #7a7a7a;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="product-container">
+      <!-- 카드 영역 추가되는 곳 -->
+    </div>
+    <button id="load-more">more product</button>
+    <script>
+      $(document).ready(function () {
+        var products = [
+          { image: "images/dora1.jpg", pTitle: "상품1", price: "$10.99", info: "상품설명1" },
+          { image: "images/dora2.jpg", pTitle: "상품2", price: "$10.99", info: "상품설명2" },
+          { image: "images/dora3.jpg", pTitle: "상품3", price: "$10.99", info: "상품설명3" },
+          { image: "images/dora1.jpg", pTitle: "상품4", price: "$10.99", info: "상품설명4" },
+          { image: "images/dora2.jpg", pTitle: "상품5", price: "$10.99", info: "상품설명5" },
+          { image: "images/dora3.jpg", pTitle: "상품6", price: "$10.99", info: "상품설명6" },
+          { image: "images/dora1.jpg", pTitle: "상품7", price: "$10.99", info: "상품설명7" },
+          { image: "images/dora2.jpg", pTitle: "상품8", price: "$10.99", info: "상품설명8" },
+          { image: "images/dora3.jpg", pTitle: "상품9", price: "$10.99", info: "상품설명9" },
+          { image: "images/dora1.jpg", pTitle: "상품10", price: "$10.99", info: "상품설명10" },
+          { image: "images/dora2.jpg", pTitle: "상품11", price: "$10.99", info: "상품설명11" },
+          { image: "images/dora3.jpg", pTitle: "상품12", price: "$10.99", info: "상품설명12" },
+          { image: "images/dora1.jpg", pTitle: "상품13", price: "$10.99", info: "상품설명13" },
+          { image: "images/dora2.jpg", pTitle: "상품14", price: "$10.99", info: "상품설명14" },
+        ];
+        //더보기 버튼 클릭 시 추가 상품 표시
+        $("#load-more").click(function () {
+          //추가 상품을 4개씩 보여주는 코드
+          var addPr = products.slice(
+            $("#product-container .product").length,
+            $("#product-container .product").length + 4
+          );
+          //product 는 매개변수
+          addPr.map(function (product) {
+            //각 상품의 영역 생성
+            var productHtml = ` <div class="product">
+        <img src="${product.image}" alt="${product.pTitle}" />
+        <h3>${product.pTitle}</h3>
+        <p>${product.price}</p>
+        <p>${product.info}</p>
+      </div>`;
+            //생성된 카드 영역을 상품 컨테이너에 추가
+            $("#product-container").append(productHtml);
+          });
+        });
+        //페이지 로드 시 초기상품 표시
+        $("#load-more").trigger("click");
+      });
+    </script>
+  </body>
+</html>

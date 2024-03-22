@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jq 이벤트</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+      .red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn">
+      <input type="button" value="append" class="append" />
+      <input type="button" value="remove" class="remove" />
+      <input type="button" value="show" class="show" />
+      <input type="button" value="hide" class="hide" />
+      <input type="button" value="toggle" class="toggle" />
+      <input type="button" value="fadein" class="fadein" />
+      <input type="button" value="fadeout" class="fadeout" />
+      <input type="button" value="fadetoggle" class="fadetoggle" />
+      <input type="button" value="addclass" class="addclass" />
+      <input type="button" value="removeclass" class="removeclass" />
+      <input type="button" value="toggleclass" class="toggleclass" />
+      <input type="button" value="slideup" class="slideup" />
+      <input type="button" value="slidedown" class="slidedown" />
+      <input type="button" value="slidetoggle" class="slidetoggle" />
+    </div>
+    <div class="content"></div>
+    <script>
+      $(function () {
+        $(".append").click(() => {
+          $(".content").append(`<div class="box"></div>`);
+          $(".box").last().css("background-color", makeColor());
+        });
+        function makeColor() {
+          // round()반올림하여 정수로 만든다
+          // 0xffffff(16진수로 16777215)과 곱합니다. 이는 0 이상 16777215 미만의 실수를 생성
+          //.toString(16): 이 정수를 16진수 문자열로 변환합니다. toString(16)은 숫자를 16진수로 표현합니다. 이 때, 반환되는 16진수 문자열은 문자열로서 '#'이 없습니다
+          const randomColor = "#" + Math.round(Math.random() * 0xffffff).toString(16);
+          return randomColor;
+        }
+        $(".remove").click(() => {
+          $(".box").remove();
+        });
+        $(".show").click(() => {
+          $(".box").show();
+        });
+        $(".hide").click(() => {
+          $(".box").hide();
+        });
+        $(".toggle").click(() => {
+          $(".box").toggle();
+        });
+        $(".show").click(() => {
+          $(".box").fadeIn(1000);
+        });
+        $(".show").click(() => {
+          $(".box").fadeOut(1000);
+        });
+        $(".show").click(() => {
+          $(".box").fadeToggle(1000);
+        });
+        // random color 중 색이 없는 구간이 있음 그 구간에 addClass()
+        $(".addclass").click(() => {
+          $(".box").addClass("red");
+        });
+        $(".removeclass").click(() => {
+          $(".box").removeClass("red");
+        });
+        $(".toggleclass").click(() => {
+          $(".box").toggleClass("red");
+        });
+        $(".slideup").click(() => {
+          $(".box").slideUp();
+        });
+        $(".slidedown").click(() => {
+          $(".box").slideDown();
+        });
+        // $(".slidetoggle").click(() => {
+        //   $(".box").slideToggle();
+        // });
+        $(".slidetoggle").click(() => {
+          $(".content div").each(function (index, item) {
+            $(item).text(index);
+          });
+          $(".box:odd").slideToggle();
+        });
+      });
+    </script>
+  </body>
+</html>

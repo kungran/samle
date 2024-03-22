@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 조작 및 생성</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <!-- toggle btn -->
+    <button id="toggleBtn">toggleBtn</button>
+    <div id="content" style="display: none">show & hide</div>
+    <br />
+    <hr />
+    <!-- animation effect -->
+    <button id="animateBtn">animation</button>
+    <div id="box" style="width: 100px; height: 100px; background-color: red"></div>
+    <script>
+      $(function () {
+        //toggle btn
+        $("#toggleBtn").click(function () {
+          $("#content").toggle();
+        });
+        //animation
+        $(function () {
+          $("#animateBtn").click(function () {
+            var box = $("#box");
+            box.animate(
+              {
+                width: box.width() == 100 ? "50px" : "100px",
+                height: box.height() == 100 ? "50px" : "100px",
+              },
+              "slow"
+            );
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

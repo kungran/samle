@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery 선택자</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $(function () {
+        var arr1 = [
+          {
+            area: "서울",
+            name: "무대리",
+          },
+          {
+            area: "부산",
+            name: "홍과장",
+          },
+          {
+            area: "대전",
+            name: "박사장",
+          },
+          {
+            area: "서울",
+            name: "빅마마",
+          },
+        ];
+        // map()은 배열 또는 객체를 변형하여 새로운 배열 또는 객체를 생성하는 데 활용된다.
+        //배열이나 객체의 각 요소에 대해 특정 동작을 수행하고 그 결과를 새로운 배열로 반환하는 기능
+        //이를 통해 간편하게 배열요소들을 반환하거나 새로운 배열을 생성
+        var arr2 = $.map(arr1, function (a, b) {
+          console.log(a, b);
+          if (a.area == "부산") {
+            return a;
+          }
+        });
+        console.log(arr2);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.css"
+      integrity="sha512-rV4fiystTwIvs71MLqeLbKbzosmgDS7VU5Xqk1IwFitAM+Aa9x/8Xil4CW+9DjOvVle2iqg4Ncagsbgu2MWxKQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"
+      integrity="sha512-p55Bpm5gf7tvTsmkwyszUe4oVMwxJMoff7Jq3J/oHaBk+tNQvDKNz9/gLxn9vyCjgd6SAoqLnL13fnuZzCYAUA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
+    <title>bx slide</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      }
+      #gallery-wrap {
+        width: 450px;
+        margin: 0 auto;
+      }
+      .slider-page {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+      }
+      #gallery-wrap .bx-wrapper{
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="gallery-wrap">
+      <ul class="slide-gallery">
+        <li><img src="images/images/pic_1.jpg" alt="사진1" /></li>
+        <li><img src="images/images/pic_2.jpg" alt="사진2" /></li>
+        <li><img src="images/images/pic_3.jpg" alt="사진3" /></li>
+        <li><img src="images/images/pic_4.jpg" alt="사진4" /></li>
+        <li><img src="images/images/pic_5.jpg" alt="사진8" /></li>
+      </ul>
+      <ul class="slider-page">
+        <li>
+          <a href="#" data-slide-index="0"> <img src="images/images/pic_t1.jpg" alt="사진1" /></a>
+        </li>
+        <li>
+          <a href="#" data-slide-index="1"> <img src="images/images/pic_t2.jpg" alt="사진2" /></a>
+        </li>
+        <li>
+          <a href="#" data-slide-index="2"> <img src="images/images/pic_t3.jpg" alt="사진3" /></a>
+        </li>
+        <li>
+          <a href="#" data-slide-index="3"> <img src="images/images/pic_t4.jpg" alt="사진4" /></a>
+        </li>
+        <li>
+          <a href="#" data-slide-index="4"> <img src="images/images/pic_t5.jpg" alt="사진5" /></a>
+        </li>
+      </ul>
+    </div>
+    <script>
+      $(function () {
+        $(".slide-gallery").bxSlider({
+          auto: true,
+          autoControls: false,
+          pagerCustom: ".slider-page",
+          // 페이지 로드 시 시작화면 슬라이드 지정
+          startSlide: 1,
+        });
+      });
+    </script>
+  </body>
+</html>

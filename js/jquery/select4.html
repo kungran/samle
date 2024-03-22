@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery 선택자</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $(function () {
+        var arr1 = ["서울", "대전", "부산", "전주"];
+        var arr2 = ["한국", "미국", "일본", "중국"];
+        var obj = {
+          name: "정부장",
+          area: "서울",
+        };
+        console.log(obj);
+        //inArray() : 주어진 값이 배열안에 있는지 확인
+        //만약에 있으면 값의 인덱스 번호를 반환
+        var idxNum = $.inArray("부산", arr1);
+        console.log(idxNum);
+        //isArray() : 배열값의 실재 여부 (true or false 로 반환)
+        var akArr1 = $.isArray(arr1)
+        console.log(akArr1);
+        var akArr2 = $.isArray(obj)
+        console.log(akArr2);
+      });
+    </script>
+  </body>
+</html>

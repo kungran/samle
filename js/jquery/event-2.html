@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <p>
+      <img src="http://place-hold.it/300X300" alt="이미지" class="img1" />
+    </p>
+    <script>
+      $(function () {
+        //dom 이 완전히 로드되고 준비된 상태일 때 실행될 콜백 함수를 등록하는 메서드
+        $(document).ready(function () {
+          var h1 = $(".img1").height();
+          console.log(h1);
+        });
+        //$(window).onload()는 웹페이지의 모든 리소스가 완전히 로드 되었을 때 실행되게끔 함수 콜백함수를 등록하는 메서드
+        $(window).load(function () {
+          var h2 = $(".img1").height();
+          console.log(h2);
+        });
+      });
+    </script>
+  </body>
+</html>

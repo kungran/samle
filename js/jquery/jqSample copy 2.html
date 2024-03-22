@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery 선택자</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+   <h1>인접 관계 선택자</h1>
+   <ul id="wrap">
+    <li>
+      list1 
+      <ul>
+        <li id="list-1">list 1-1</li>
+        <li>list 1-2</li>
+      </ul>
+    </li>
+    <li>list2</li>
+    <li>list3</li>
+   </ul>
+   <script>
+    $(function(){
+      //list-1의 parent()에 접근 (=ul)
+      $("#list-1").parent().css("border", "2px solid #f00")
+    })
+   </script>
+  </body>
+</html>

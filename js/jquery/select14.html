@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상품리스트 - filter() 예제</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <h2>product list</h2>
+    <ul id="product-list">
+      <li class="product" data-price="50">product A - 50&#8361;</li>
+      <li class="product" data-price="100">product B - 100&#8361;</li>
+      <li class="product" data-price="150">product C - 150&#8361;</li>
+      <li class="product" data-price="200">product D - 200&#8361;</li>
+    </ul>
+    <input type="number" id="price-filter" placeholder="최대 가격을 입력하세요" />
+    <script>
+      $(function () {
+        $("#price-filter").keyup(function () {
+          var maxPrice = $(this).val(); //입력된 가격 최대값 가져오기
+          if (maxPrice === "") {
+            $(".prodcut").show();
+          } else {
+            $(".product")
+              .hide()
+              .filter(function () {
+                return parseInt($(this).data("price")) <= maxPrice;
+              })
+              .show();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

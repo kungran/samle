@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <p><button class="btn1">버튼1</button></p>
+    <p><button class="btn2">버튼2</button></p>
+    <script>
+      $(function () {
+        //fn은 제이쿼리에 프로토 타입 객체를 가리킨다.
+        // (eventType, message) 각 객체 해당 매개 변수
+        $.fn.open = function (eventType, message) {
+          var ts = $(this);
+          $.each(ts, function (i, o) {
+            $(o).on(eventType, function () {
+              alert(message);
+            });
+          });
+        };
+        $(".btn1").open("mouseover", "김수민");
+        $(".btn2").open("click", "click 김수민");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jq 이벤트</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <p class="btn_wrap">
+        <button class="btn_1">버튼1</button>
+      </p>
+      <p><button class="btn_2">버튼2</button></p>
+    </div>
+    <script>
+      $(function () {
+        //delegate() : on() 메서드와 비슷한 개념
+        $(".btn_wrap").delegate(".btn_1.on", "mouseover focus", function () {
+          alert(`집에가고싶어요`);
+        });
+        $(".btn_1").addClass("on").delegate();
+        //one() : 이벤트 한 번만 발생
+        $(document).one("mouseover focus", ".btn_2.on", function () {
+          alert(`진짜 집에가고싶어요`);
+        });
+        $(".btn_2").addClass("on");
+      });
+    </script>
+  </body>
+</html>

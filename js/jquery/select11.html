@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 조작 및 생성</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <ul id="listZone">
+      <li>list</li>
+    </ul>
+    <script>
+      $(function () {
+        // 뒤에 추가
+        $("<li>ssum</li>").appendTo("#listZone");
+        // 앞에 추가
+        $("#listZone").prepend("<li>list 2nd</li>");
+      });
+    </script>
+  </body>
+</html>

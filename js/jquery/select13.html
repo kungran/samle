@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 조작 및 생성</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <div class="outer_wrap">
+      <section id="inner_1">
+        <p class="txt1">내용1</p>
+        <p class="txt2">내용2</p>
+      </section>
+      <section class="inner_2">
+        <h2>filter(function)</h2>
+        <p>index0</p>
+        <p>index1</p>
+        <p>index2</p>
+        <p>index3</p>
+      </section>
+    </div>
+    <script>
+      $(function () {
+        $(function () {
+          //find() 현재 선택된 요소들의 하위 요소 중에서 지정된 선택지에 맞게 요소를 찾는다
+          //지정법: 지정된 선택자에 맞게 요소들을 찾음
+          $("#inner_1").find(".txt1").css({ "background-color": "#ff0" });
+          // filter() 현재 선택된 요소들 중에서 지정된 조건을 만족하는 요소들을 걸러냄
+          //지정법: 선택된 요소들을 걸러내는데 사용
+          // 조건을 함수로 제공하거나 css선택자로 제공
+          $("#inner_1 p").filter(".txt2").css({ "background-color": "#f0f" });
+          //(idx, obj): 콜백 함수
+          $(".inner_2 p")
+            .filter(function (idx, obj) {
+              //return 콜백함수에서 요소의 인덱스가 짝수인 경우에만 요소를 선택
+              return idx % 2 == 0;
+            })
+            .css({ "background-color": "#f00" });
+        });
+      });
+    </script>
+  </body>
+</html>

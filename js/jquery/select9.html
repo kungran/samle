@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 조작 및 생성</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <input type="checkbox" id="myCheckbox" />click
+    <select id="mySelect">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <script>
+      $(function () {
+        //체크박스의 체크 여부를 제어하는데 사용
+        $("#myCheckbox").prop("checked", false);
+        var isChecked = $("#myCheckbox").prop("checked");
+        // console.log(isChecked);
+
+        //select 요소의 옵션을 선택하거나 선택된 옵션을 확인하기
+        //선택된 옵션의 값을 가져오기
+        var selectedValue = $("#mySelect").val();
+        //특정 옵션을 선택
+        $("#mySelect").val("2").prop("selected", "true");
+        var selectedValue1 = $("#mySelect").val();
+        console.log(selectedValue1);
+      });
+    </script>
+  </body>
+</html>

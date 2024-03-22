@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상품리스트 - filter() 예제</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <h2>product list</h2>
+    <ul id="product-list">
+      <li class="product" data-cate="electronics">laptop</li>
+      <li class="product" data-cate="clothes">T-shirts</li>
+      <li class="product" data-cate="electronics">galaxy buds</li>
+      <li class="product" data-cate="books">novel</li>
+      <li class="product" data-cate="books">essay</li>
+    </ul>
+    <select id="cate-filter">
+      <option value="all">all categories</option>
+      <option value="electronics">electronics</option>
+      <option value="clothes">clothes</option>
+      <option value="books">books</option>
+    </select>
+    <script>
+      $(function () {
+        $("#cate-filter").change(function () {
+          var selectedCate = $(this).val();
+          if (selectedCate == "all") {
+            $(".product").show();
+          } else {
+            $(".product").hide().filter(`[ data-cate="${selectedCate}"]`).show();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
